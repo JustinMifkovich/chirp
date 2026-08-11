@@ -260,6 +260,9 @@ class ChirpBankEdit(common.ChirpEditor):
             # Assigning a bank moved the memory to a different channel
             # number, so the row it came from is stale as well.
             self.refresh_memories()
+            # The memory is now potentially hundreds of rows away. Follow it
+            # so that it does not look like it simply disappeared.
+            self._grid.GoToCell(self.mem2row(mem.number), 0)
         else:
             self._refresh_memory(mem)
 
