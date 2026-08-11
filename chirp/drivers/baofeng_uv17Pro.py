@@ -218,6 +218,28 @@ def _upload(radio):
     return data
 
 
+class UV17ProBank(chirp_common.StaticBank):
+    """A fixed bank that reports the zone name stored in the radio"""
+
+    def get_name(self):
+        _bank = self._model._radio._memobj.bank_name[self._index - 1]
+        name = b""
+        for char in _bank.name:
+            if ord(str(char)) in [0, 255]:
+                break
+            name += int(char).to_bytes(1, 'big')
+        return name.decode('gb2312', 'replace').strip() or self._name
+
+
+class UV17ProBankModel(chirp_common.StaticBankModel):
+    """Static bank model for radios that store zone names in bank_name[]"""
+
+    def __init__(self, radio, name='Banks', banks=10):
+        super().__init__(radio, name=name, banks=banks)
+        self._banks = [UV17ProBank(self, i + 1, 'Bank %i' % (i + 1))
+                       for i in range(self._num_banks)]
+
+
 @directory.register
 class UV17Pro(bfc.BaofengCommonHT):
     """Baofeng UV-17Pro"""
@@ -1555,7 +1577,7 @@ class UV17ProGPS(UV17Pro):
     MODES = UV17Pro.MODES + ['AM']
 
     def get_bank_model(self):
-        return chirp_common.StaticBankModel(self, banks=10)
+        return UV17ProBankModel(self, banks=10)
 
     def get_features(self):
         rf = super().get_features()
@@ -2024,7 +2046,7 @@ class F8HPPro(UV17Pro):
         basic.append(rs)
 
     def get_bank_model(self):
-        return chirp_common.StaticBankModel(self, banks=10)
+        return UV17ProBankModel(self, banks=10)
 
     def get_features(self):
         rf = super().get_features()
