@@ -783,7 +783,7 @@ class StaticBankModel(BankModel):
         self._rf = radio.get_features()
         self._banks = []
         for i in range(self._num_banks):
-            self._banks.append(StaticBank(self, i + 1, 'Bank'))
+            self._banks.append(StaticBank(self, i + 1, 'Bank %i' % (i + 1)))
 
     def get_num_mappings(self):
         return self._num_banks
@@ -793,7 +793,7 @@ class StaticBankModel(BankModel):
 
     def get_mapping_memories(self, bank):
         lo, hi = self._rf.memory_bounds
-        count = (hi - lo + 1) / self._num_banks
+        count = (hi - lo + 1) // self._num_banks
         offset = lo + ((bank.get_index() - 1) * count)
         return [self._radio.get_memory(offset + i) for i in range(count)]
 

@@ -17,6 +17,7 @@ from unittest import mock
 
 from tests.unit import base
 from chirp import chirp_common
+from chirp import errors
 from chirp.drivers import icf
 
 
@@ -95,6 +96,84 @@ class TestBaseMappingModelIndexInterface(_TestBaseClass):
                    ]
         for method, args in methods:
             self._test_base(method, *args)
+
+
+class TestStaticBankModel(base.BaseTest):
+    CLS = chirp_common.StaticBankModel
+    NUM_BANKS = 10
+    BOUNDS = (1, 1000)
+
+    def _get_model(self, bounds=None, banks=None):
+        rf = chirp_common.RadioFeatures()
+        rf.memory_bounds = bounds or self.BOUNDS
+
+        class FakeRadio(chirp_common.Radio):
+            def __init__(the_radio):
+                pass
+
+            def get_features(the_radio):
+                return rf
+
+            def get_memory(the_radio, number):
+                mem = chirp_common.Memory()
+                mem.number = number
+                return mem
+
+        return self.CLS(FakeRadio(), banks=banks or self.NUM_BANKS)
+
+    def test_get_num_mappings(self):
+        self.assertEqual(self._get_model().get_num_mappings(), self.NUM_BANKS)
+
+    def test_mappings_have_distinct_names(self):
+        banks = self._get_model().get_mappings()
+        names = [bank.get_name() for bank in banks]
+        self.assertEqual(names,
+                         ['Bank %i' % i
+                          for i in range(1, self.NUM_BANKS + 1)])
+        # Identical names leave the banks indistinguishable in the UI
+        self.assertEqual(len(set(names)), self.NUM_BANKS)
+
+    def test_get_mapping_memories(self):
+        model = self._get_model()
+        banks = model.get_mappings()
+
+        # Each bank is a contiguous 100-row slice of the memory space
+        self.assertEqual([mem.number for mem in
+                          model.get_mapping_memories(banks[0])],
+                         list(range(1, 101)))
+        self.assertEqual([mem.number for mem in
+                          model.get_mapping_memories(banks[2])],
+                         list(range(201, 301)))
+        self.assertEqual([mem.number for mem in
+                          model.get_mapping_memories(banks[-1])],
+                         list(range(901, 1001)))
+
+    def test_get_mapping_memories_zero_based_bounds(self):
+        model = self._get_model(bounds=(0, 999))
+        banks = model.get_mappings()
+        self.assertEqual([mem.number for mem in
+                          model.get_mapping_memories(banks[0])],
+                         list(range(0, 100)))
+        self.assertEqual([mem.number for mem in
+                          model.get_mapping_memories(banks[1])],
+                         list(range(100, 200)))
+
+    def test_get_memory_mappings_matches_mapping_memories(self):
+        model = self._get_model()
+        banks = model.get_mappings()
+        for bank in banks:
+            for mem in model.get_mapping_memories(bank):
+                self.assertEqual(model.get_memory_mappings(mem), [bank])
+
+    def test_is_fixed(self):
+        model = self._get_model()
+        bank = model.get_mappings()[0]
+        mem = chirp_common.Memory()
+        mem.number = 1
+        self.assertRaises(errors.RadioFixedBanks,
+                          model.add_memory_to_mapping, mem, bank)
+        self.assertRaises(errors.RadioFixedBanks,
+                          model.remove_memory_from_mapping, mem, bank)
 
 
 class TestIcomBanks(TestBaseMapping):
