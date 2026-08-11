@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CHIRP\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-28 15:31-0700\n"
+"POT-Creation-Date: 2026-08-11 16:41-0400\n"
 "PO-Revision-Date: 2026-06-17 14:30+0200\n"
 "Last-Translator: Martin Macko <martin.macko@email.cz>\n"
 "Language-Team: Czech\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "%(value)s must be between %(min)i and %(max)i"
 msgstr "%(value)s musí být mezi %(min)i a %(max)i"
 
-#: ../wxui/memedit.py:2247
+#: ../wxui/memedit.py:2309
 #, fuzzy, python-format
 msgid "%i Memories and shift all up"
 msgid_plural "%i Memories and shift all up"
@@ -30,7 +30,7 @@ msgstr[0] "%i paměť a posunout všechny nahoru"
 msgstr[1] "%i paměti a posunout všechny nahoru"
 msgstr[2] "%i pamětí a posunout všechny nahoru"
 
-#: ../wxui/memedit.py:2238
+#: ../wxui/memedit.py:2300
 #, fuzzy, python-format
 msgid "%i Memory"
 msgid_plural "%i Memories"
@@ -38,7 +38,7 @@ msgstr[0] "%i paměť"
 msgstr[1] "%i paměti"
 msgstr[2] "%i pamětí"
 
-#: ../wxui/memedit.py:2242
+#: ../wxui/memedit.py:2304
 #, fuzzy, python-format
 msgid "%i Memory and shift block up"
 msgid_plural "%i Memories and shift block up"
@@ -76,7 +76,7 @@ msgstr "(Fungovalo to někdy dříve? Nová vysílačka? Funguje to s origináln
 msgid "(none)"
 msgstr "(žádný)"
 
-#: ../wxui/memedit.py:2643
+#: ../wxui/memedit.py:2705
 #, python-format
 msgid "...and %i more"
 msgstr "...a %i dalších"
@@ -1207,6 +1207,14 @@ msgstr "Frekvenční plán"
 msgid "Bands"
 msgstr "Pásma"
 
+#: ../wxui/memedit.py:737
+msgid "Bank"
+msgstr ""
+
+#: ../wxui/memedit.py:151
+msgid "Bank membership (edited on the Banks tab, and on some radios fixed by the memory number)"
+msgstr ""
+
 #: ../wxui/main.py:211
 msgid "Banks"
 msgstr "Banky"
@@ -1257,7 +1265,7 @@ msgstr "Kanada"
 msgid "Changing this setting requires refreshing the settings from the image, which will happen now."
 msgstr "Změna tohoto nastavení vyžaduje načtení nastavení z obrazu paměti, což se nyní stane."
 
-#: ../wxui/memedit.py:1884
+#: ../wxui/memedit.py:1946
 #, python-format
 msgid "Channels with equivalent TX and RX %s are represented by tone mode of \"%s\""
 msgstr "Kanály s ekvivalentním TX a RX %s jsou reprezentovány tónovým režimem „%s“"
@@ -1266,21 +1274,21 @@ msgstr "Kanály s ekvivalentním TX a RX %s jsou reprezentovány tónovým reži
 msgid "Chirp Image Files"
 msgstr "Soubory obrazů Chirp"
 
-#: ../wxui/memedit.py:500
+#: ../wxui/memedit.py:511
 msgid "Choice Required"
 msgstr "Vyžadována volba"
 
-#: ../wxui/memedit.py:1863
+#: ../wxui/memedit.py:1925
 #, python-format
 msgid "Choose %s DTCS Code"
 msgstr "Zvolte kód DTCS pro %s"
 
-#: ../wxui/memedit.py:1860
+#: ../wxui/memedit.py:1922
 #, python-format
 msgid "Choose %s Tone"
 msgstr "Zvolte tón pro %s"
 
-#: ../wxui/memedit.py:1894
+#: ../wxui/memedit.py:1956
 msgid "Choose Cross Mode"
 msgstr "Zvolte křížový režim (Cross Mode)"
 
@@ -1292,7 +1300,7 @@ msgstr "Zvolte cíl porovnání"
 msgid "Choose a recent model"
 msgstr "Zvolte nedávný model"
 
-#: ../wxui/memedit.py:1924
+#: ../wxui/memedit.py:1986
 msgid "Choose duplex"
 msgstr "Zvolte duplex"
 
@@ -1363,7 +1371,7 @@ msgstr "Zavřít soubor"
 msgid "Close string value with double-quote (\")"
 msgstr "Uzavřít hodnotu řetězce dvojitými uvozovkami (\")"
 
-#: ../wxui/memedit.py:2306
+#: ../wxui/memedit.py:2368
 #, fuzzy, python-format
 msgid "Cluster %i memory"
 msgid_plural "Cluster %i memories"
@@ -1371,7 +1379,7 @@ msgstr[0] "Skupina %i paměť"
 msgstr[1] "Skupina %i paměti"
 msgstr[2] "Skupina %i pamětí"
 
-#: ../wxui/memedit.py:706
+#: ../wxui/memedit.py:717
 msgid "Comment"
 msgstr "Komentář"
 
@@ -1383,11 +1391,11 @@ msgstr "Komunikovat s vysílačkou"
 msgid "Complete"
 msgstr "Dokončeno"
 
-#: ../wxui/memedit.py:158
+#: ../wxui/memedit.py:160
 msgid "Complex or non-standard tone squelch mode (starts the tone mode selection wizard)"
 msgstr "Komplexní nebo nestandardní režim tónového squelchu (spustí průvodce výběrem tónového režimu)"
 
-#: ../drivers/tmd710.py:184 ../drivers/tmd710.py:187
+#: ../drivers/tmd710.py:187 ../drivers/tmd710.py:190
 msgid ""
 "Connect your interface cable to the PC Port on the\n"
 "back of the 'TX/RX' unit. NOT the Com Port on the head.\n"
@@ -1399,12 +1407,12 @@ msgstr ""
 msgid "Convert to FM"
 msgstr "Převést na FM"
 
-#: ../wxui/memedit.py:2217
+#: ../wxui/memedit.py:2279
 #, fuzzy
 msgid "Copy"
 msgstr "Kopírovat"
 
-#: ../wxui/memedit.py:2221
+#: ../wxui/memedit.py:2283
 msgid "Copy portable"
 msgstr "Kopírovat přenosnou verzi"
 
@@ -1413,7 +1421,7 @@ msgstr "Kopírovat přenosnou verzi"
 msgid "Country"
 msgstr "Země"
 
-#: ../wxui/memedit.py:689
+#: ../wxui/memedit.py:700
 msgid "Cross Mode"
 msgstr "Křížový režim"
 
@@ -1425,21 +1433,21 @@ msgstr "Vlastní port"
 msgid "Custom..."
 msgstr "Vlastní..."
 
-#: ../wxui/memedit.py:2212
+#: ../wxui/memedit.py:2274
 #, fuzzy
 msgid "Cut"
 msgstr "Vyjmout"
 
-#: ../wxui/memedit.py:2486
+#: ../wxui/memedit.py:2548
 #, python-format
 msgid "Cut %i memories"
 msgstr "Vyjmout %i pamětí"
 
-#: ../wxui/memedit.py:620
+#: ../wxui/memedit.py:631
 msgid "DTCS"
 msgstr "DTCS"
 
-#: ../wxui/memedit.py:666
+#: ../wxui/memedit.py:677
 msgid ""
 "DTCS\n"
 "Polarity"
@@ -1451,7 +1459,7 @@ msgstr ""
 msgid "DTMF decode"
 msgstr "DTMF dekódování"
 
-#: ../wxui/memedit.py:2945
+#: ../wxui/memedit.py:3007
 msgid "DV Memory"
 msgstr "DV paměť"
 
@@ -1463,12 +1471,12 @@ msgstr "Nebezpečí před vámi"
 msgid "Dec"
 msgstr "Prosinec"
 
-#: ../wxui/memedit.py:2232
+#: ../wxui/memedit.py:2294
 #, fuzzy
 msgid "Delete"
 msgstr "Smazat"
 
-#: ../wxui/memedit.py:2095
+#: ../wxui/memedit.py:2157
 msgid "Delete memories"
 msgstr "Smazat paměti"
 
@@ -1486,16 +1494,16 @@ msgstr "Vývojářský režim"
 msgid "Developer state is now %s. CHIRP must be restarted to take effect"
 msgstr "Stav vývojáře je nyní %s. Pro projevení změn je nutné restartovat CHIRP"
 
-#: ../wxui/memedit.py:2343 ../wxui/developer.py:98
+#: ../wxui/memedit.py:2405 ../wxui/developer.py:98
 #, fuzzy
 msgid "Diff Raw Memories"
 msgstr "Porovnat surové paměti"
 
-#: ../wxui/memedit.py:2351
+#: ../wxui/memedit.py:2413
 msgid "Diff against another editor"
 msgstr "Porovnat s jiným editorem"
 
-#: ../wxui/memedit.py:2862
+#: ../wxui/memedit.py:2924
 msgid "Digital Code"
 msgstr "Digitální kód"
 
@@ -1507,7 +1515,7 @@ msgstr "Digitální režimy"
 msgid "Disable reporting"
 msgstr "Zakázat hlášení"
 
-#: ../wxui/memedit.py:596
+#: ../wxui/memedit.py:607
 msgid "Disabled"
 msgstr "Zakázáno"
 
@@ -1564,21 +1572,21 @@ msgstr "Zprávy ovladače"
 msgid "Dual-mode digital repeaters that support analog will be shown as FM"
 msgstr "Duální digitální převaděče podporující analog se zobrazí jako FM"
 
-#: ../wxui/memedit.py:559
+#: ../wxui/memedit.py:570
 msgid "Duplex"
 msgstr "Duplex"
 
-#: ../wxui/memedit.py:2373
+#: ../wxui/memedit.py:2435
 #, python-format
 msgid "Edit %i memories"
 msgstr "Upravit %i pamětí"
 
-#: ../wxui/memedit.py:2892
+#: ../wxui/memedit.py:2954
 #, python-format
 msgid "Edit details for %i memories"
 msgstr "Upravit podrobnosti pro %i pamětí"
 
-#: ../wxui/memedit.py:2890
+#: ../wxui/memedit.py:2952
 #, python-format
 msgid "Edit details for memory %i"
 msgstr "Upravit podrobnosti pro paměť %i"
@@ -1587,19 +1595,19 @@ msgstr "Upravit podrobnosti pro paměť %i"
 msgid "Enable Automatic Edits"
 msgstr "Povolit automatické úpravy"
 
-#: ../wxui/memedit.py:596
+#: ../wxui/memedit.py:607
 msgid "Enabled"
 msgstr "Povoleno"
 
-#: ../wxui/memedit.py:404
+#: ../wxui/memedit.py:415
 msgid "Enter Frequency"
 msgstr "Zadejte frekvenci"
 
-#: ../wxui/memedit.py:1911
+#: ../wxui/memedit.py:1973
 msgid "Enter Offset (MHz)"
 msgstr "Zadejte odskok (MHz)"
 
-#: ../wxui/memedit.py:1903
+#: ../wxui/memedit.py:1965
 msgid "Enter TX Frequency (MHz)"
 msgstr "Zadejte vysílací (TX) frekvenci (MHz)"
 
@@ -1689,7 +1697,7 @@ msgstr "Vyloučit soukromé a uzavřené převaděče"
 msgid "Experimental driver"
 msgstr "Experimentální ovladač"
 
-#: ../wxui/memedit.py:2805
+#: ../wxui/memedit.py:2867
 msgid "Export can only write CSV files"
 msgstr "Export může zapisovat pouze soubory CSV"
 
@@ -1703,7 +1711,7 @@ msgstr "Exportovat do CSV"
 msgid "Export to CSV..."
 msgstr "Exportovat do CSV..."
 
-#: ../wxui/memedit.py:2934
+#: ../wxui/memedit.py:2996
 msgid "Extra"
 msgstr "Extra"
 
@@ -1724,7 +1732,7 @@ msgid ""
 "required."
 msgstr "BEZPLATNÁ databáze převaděčů, která poskytuje nejaktuálnější informace o převaděčích v Evropě. Není vyžadován žádný účet."
 
-#: ../wxui/memedit.py:2843
+#: ../wxui/memedit.py:2905
 msgid "Failed to export some memories"
 msgstr "Nepodařilo se exportovat některé paměti"
 
@@ -2090,12 +2098,12 @@ msgstr ""
 "4 - Do the upload of your radio data\n"
 "\n"
 
-#: ../wxui/memedit.py:238
+#: ../wxui/memedit.py:249
 #, python-format
 msgid "Found empty list value for %(name)s: %(value)r"
 msgstr "Nalezena prázdná hodnota seznamu pro %(name)s: %(value)r"
 
-#: ../wxui/memedit.py:350
+#: ../wxui/memedit.py:361
 msgid "Frequency"
 msgstr "Frekvence"
 
@@ -2104,7 +2112,7 @@ msgstr "Frekvence"
 msgid "Frequency %s is out of supported ranges %s"
 msgstr "Frekvence %s je mimo podporovaný rozsah %s"
 
-#: ../wxui/memedit.py:162
+#: ../wxui/memedit.py:164
 msgid "Frequency granularity in kHz"
 msgstr "Krok frekvence v kHz"
 
@@ -2138,16 +2146,16 @@ msgstr "GMRS"
 msgid "Getting settings"
 msgstr "Získávání nastavení"
 
-#: ../wxui/memedit.py:1408
+#: ../wxui/memedit.py:1460
 #, fuzzy
 msgid "Goto Memory"
 msgstr "Přejít na paměť"
 
-#: ../wxui/memedit.py:1407
+#: ../wxui/memedit.py:1459
 msgid "Goto Memory:"
 msgstr "Přejít na paměť:"
 
-#: ../wxui/memedit.py:1354
+#: ../wxui/memedit.py:1406
 msgid "Goto..."
 msgstr "Přejít na..."
 
@@ -2168,7 +2176,7 @@ msgstr "Pomozte mi..."
 msgid "Hex"
 msgstr "Šestnáctkově"
 
-#: ../wxui/memedit.py:1363
+#: ../wxui/memedit.py:1415
 #, fuzzy
 msgid "Hide empty memories"
 msgstr "Skrýt prázdné paměti"
@@ -2177,7 +2185,7 @@ msgstr "Skrýt prázdné paměti"
 msgid "Honor the CTCSS/DCS receive squelch configuration when enabled, else only carrier squelch"
 msgstr "Respektovat nastavení CTCSS/DCS přijímacího squelchu, je-li povoleno, jinak pouze nosný squelch"
 
-#: ../wxui/memedit.py:165
+#: ../wxui/memedit.py:167
 msgid "Human-readable comment (not stored in radio)"
 msgstr "Lidsky čitelný komentář (neukládá se do vysílačky)"
 
@@ -2195,7 +2203,7 @@ msgstr "Je-li nastaveno, seřadí výsledky podle vzdálenosti od těchto souřa
 msgid "Import"
 msgstr "Importovat"
 
-#: ../wxui/memedit.py:2522
+#: ../wxui/memedit.py:2584
 #, python-format
 msgid "Import %i memories"
 msgstr "Importovat %i pamětí"
@@ -2226,11 +2234,11 @@ msgstr "Index"
 msgid "Info"
 msgstr "Info"
 
-#: ../wxui/memedit.py:1886
+#: ../wxui/memedit.py:1948
 msgid "Information"
 msgstr "Informace"
 
-#: ../wxui/memedit.py:2206
+#: ../wxui/memedit.py:2268
 msgid "Insert Row Above"
 msgstr "Vložit řádek nad"
 
@@ -2256,7 +2264,7 @@ msgid "Invalid %(value)s (use decimal degrees)"
 msgstr "Neplatná hodnota %(value)s (použijte desetinné stupně)"
 
 #: ../wxui/query_sources.py:70 ../wxui/query_sources.py:124
-#: ../wxui/memedit.py:2049
+#: ../wxui/memedit.py:2111
 msgid "Invalid Entry"
 msgstr "Neplatný vstup"
 
@@ -2264,7 +2272,7 @@ msgstr "Neplatný vstup"
 msgid "Invalid ZIP code"
 msgstr "Neplatné PSČ"
 
-#: ../wxui/memedit.py:2048 ../wxui/memedit.py:3027
+#: ../wxui/memedit.py:2110 ../wxui/memedit.py:3089
 #, python-format
 msgid "Invalid edit: %s"
 msgstr "Neplatná úprava: %s"
@@ -2277,7 +2285,7 @@ msgstr "Neplatný lokátor"
 msgid "Invalid or unsupported module file"
 msgstr "Neplatný nebo nepodporovaný soubor modulu"
 
-#: ../wxui/memedit.py:296 ../wxui/memedit.py:302
+#: ../wxui/memedit.py:307 ../wxui/memedit.py:313
 #, python-format
 msgid "Invalid value: %r"
 msgstr "Neplatná hodnota: %r"
@@ -2385,7 +2393,7 @@ msgstr "Text loga 2 (12 znaků)"
 msgid "Longitude"
 msgstr "Zeměpisná délka"
 
-#: ../wxui/memedit.py:2061
+#: ../wxui/memedit.py:2123
 #, python-format
 msgid "Manual edit of memory %i"
 msgstr "Ruční úprava paměti %i"
@@ -2399,7 +2407,7 @@ msgstr "Paměti"
 msgid "Memories are read-only due to unsupported firmware version"
 msgstr "Paměti jsou pouze pro čtení kvůli nepodporované verzi firmwaru"
 
-#: ../wxui/memedit.py:2090
+#: ../wxui/memedit.py:2152
 #, python-format
 msgid "Memory %i is not deletable"
 msgstr "Paměť %i nelze smazat"
@@ -2427,7 +2435,7 @@ msgid "Memory {num} not in bank {bank}"
 msgstr "Paměť {num} není v bance {bank}"
 
 #: ../wxui/query_sources.py:626 ../wxui/query_sources.py:779
-#: ../wxui/memedit.py:675
+#: ../wxui/memedit.py:686
 msgid "Mode"
 msgstr "Režim"
 
@@ -2460,22 +2468,22 @@ msgstr "Více informací"
 msgid "More than one port found: %s"
 msgstr "Nalezeno více než jedno rozhraní: %s"
 
-#: ../wxui/memedit.py:2743
+#: ../wxui/memedit.py:2805
 #, python-format
 msgid "Move %i memories"
 msgstr "Přesunout %i pamětí"
 
-#: ../wxui/memedit.py:1350
+#: ../wxui/memedit.py:1402
 #, fuzzy
 msgid "Move Down"
 msgstr "Posunout dolů"
 
-#: ../wxui/memedit.py:1340
+#: ../wxui/memedit.py:1392
 #, fuzzy
 msgid "Move Up"
 msgstr "Posunout nahoru"
 
-#: ../wxui/memedit.py:2713
+#: ../wxui/memedit.py:2775
 msgid "Move operations are disabled while the view is sorted"
 msgstr "Operace přesunu jsou zakázány, pokud je pohled seřazen"
 
@@ -2487,7 +2495,7 @@ msgstr "Nové okno"
 msgid "New version available"
 msgstr "K dispozici je nová verze"
 
-#: ../wxui/memedit.py:2390
+#: ../wxui/memedit.py:2452
 msgid "No empty rows below!"
 msgstr "Níže nejsou žádné prázdné řádky!"
 
@@ -2505,7 +2513,7 @@ msgstr "Nebyly nalezeny žádné moduly"
 msgid "No modules found in issue %i"
 msgstr "V hlášení %i nebyly nalezeny žádné moduly"
 
-#: ../wxui/memedit.py:2576
+#: ../wxui/memedit.py:2638
 msgid "No more space available; some memories were not applied"
 msgstr "Není k dispozici žádné další místo; některé paměti nebyly použity"
 
@@ -2522,15 +2530,15 @@ msgstr "Žádné výsledky!"
 msgid "No traces stored"
 msgstr "Nejsou uloženy žádné stopy komunikace"
 
-#: ../wxui/query_sources.py:45 ../wxui/memedit.py:1407
+#: ../wxui/query_sources.py:45 ../wxui/memedit.py:1459
 msgid "Number"
 msgstr "Číslo"
 
-#: ../wxui/memedit.py:346
+#: ../wxui/memedit.py:357
 msgid "Offset"
 msgstr "Odskok"
 
-#: ../wxui/memedit.py:344
+#: ../wxui/memedit.py:355
 msgid ""
 "Offset/\n"
 "TX Freq"
@@ -2642,7 +2650,7 @@ msgstr "Volitelné: AA00 - AA00aa11"
 msgid "Optional: County, Hospital, etc."
 msgstr "Volitelné: Okres, nemocnice, atd."
 
-#: ../wxui/memedit.py:2556
+#: ../wxui/memedit.py:2618
 #, fuzzy
 msgid "Overwrite memories?"
 msgstr "Přepsat paměti?"
@@ -2666,7 +2674,7 @@ msgstr "Zpracování"
 msgid "Password"
 msgstr "Heslo"
 
-#: ../wxui/memedit.py:2226
+#: ../wxui/memedit.py:2288
 #, fuzzy
 msgid "Paste"
 msgstr "Vložit"
@@ -2675,26 +2683,26 @@ msgstr "Vložit"
 msgid "Paste external memories"
 msgstr "Vložit externí paměti"
 
-#: ../wxui/memedit.py:2656
+#: ../wxui/memedit.py:2718
 msgid "Paste memories"
 msgstr "Vložit paměti"
 
-#: ../wxui/memedit.py:2550
+#: ../wxui/memedit.py:2612
 #, python-format
 msgid "Pasted memories will overwrite %s existing memories"
 msgstr "Vložené paměti přepíší %s existujících pamětí"
 
-#: ../wxui/memedit.py:2553
+#: ../wxui/memedit.py:2615
 #, python-format
 msgid "Pasted memories will overwrite memories %s"
 msgstr "Vložené paměti přepíší paměti %s"
 
-#: ../wxui/memedit.py:2547
+#: ../wxui/memedit.py:2609
 #, python-format
 msgid "Pasted memories will overwrite memory %s"
 msgstr "Vložené paměti přepíší paměť %s"
 
-#: ../wxui/memedit.py:2544
+#: ../wxui/memedit.py:2606
 #, python-format
 msgid "Pasted memory will overwrite memory %s"
 msgstr "Vložená paměť přepíše paměť %s"
@@ -2727,7 +2735,7 @@ msgstr "Polská databáze převaděčů"
 msgid "Port"
 msgstr "Port"
 
-#: ../wxui/memedit.py:425
+#: ../wxui/memedit.py:436
 msgid "Power"
 msgstr "Výkon"
 
@@ -2751,7 +2759,7 @@ msgstr "Tisk"
 msgid "Prolific USB device"
 msgstr "Prolific USB zařízení"
 
-#: ../wxui/memedit.py:2199
+#: ../wxui/memedit.py:2261
 msgid "Properties"
 msgstr "Vlastnosti"
 
@@ -2793,7 +2801,7 @@ msgstr "Nápověda k syntaxi dotazů"
 msgid "Querying"
 msgstr "Dotazování"
 
-#: ../wxui/memedit.py:622
+#: ../wxui/memedit.py:633
 msgid "RX DTCS"
 msgstr "RX DTCS"
 
@@ -2849,7 +2857,7 @@ msgstr ""
 "RadioReference.com je největším světovým poskytovatelem dat o rádiové komunikaci\n"
 "<small>Vyžaduje prémiový účet</small>"
 
-#: ../wxui/memedit.py:156
+#: ../wxui/memedit.py:158
 msgid "Receive DTCS code"
 msgstr "Přijímaný DTCS kód"
 
@@ -2871,7 +2879,7 @@ msgstr "Nedávné..."
 msgid "Recommend using 55.2"
 msgstr "Doporučuje se použít 55.2"
 
-#: ../wxui/memedit.py:1035
+#: ../wxui/memedit.py:1087
 msgid "Redo"
 msgstr "Znovu"
 
@@ -2892,7 +2900,7 @@ msgstr "Znovu načíst ovladač"
 msgid "Reload Driver and File"
 msgstr "Znovu načíst ovladač a soubor"
 
-#: ../wxui/memedit.py:1395
+#: ../wxui/memedit.py:1447
 msgid "Reload required"
 msgstr "Je vyžadováno znovunačtení"
 
@@ -2980,7 +2988,7 @@ msgstr "Uložit soubor"
 msgid "Saved settings"
 msgstr "Uložená nastavení"
 
-#: ../wxui/memedit.py:163
+#: ../wxui/memedit.py:165
 msgid "Scan control (skip, include, priority, etc)"
 msgstr "Řízení skenování (přeskočit, zahrnout, priorita, atd.)"
 
@@ -3051,11 +3059,11 @@ msgstr "Nastavení jsou pouze pro čtení kvůli nepodporované verzi firmwaru"
 msgid "Settings: %s"
 msgstr ""
 
-#: ../wxui/memedit.py:161
+#: ../wxui/memedit.py:163
 msgid "Shift amount (or transmit frequency) controlled by duplex"
 msgstr "Velikost odskoku (nebo vysílací frekvence) řízená duplexem"
 
-#: ../wxui/memedit.py:2335 ../wxui/developer.py:101
+#: ../wxui/memedit.py:2397 ../wxui/developer.py:101
 #, fuzzy
 msgid "Show Raw Memory"
 msgstr "Zobrazit surovou paměť"
@@ -3064,7 +3072,7 @@ msgstr "Zobrazit surovou paměť"
 msgid "Show debug log location"
 msgstr "Zobrazit umístění ladicího protokolu"
 
-#: ../wxui/memedit.py:1359
+#: ../wxui/memedit.py:1411
 msgid "Show extra fields"
 msgstr "Zobrazit rozšiřující pole"
 
@@ -3072,24 +3080,24 @@ msgstr "Zobrazit rozšiřující pole"
 msgid "Show image backup location"
 msgstr "Zobrazit umístění zálohy obrazu paměti"
 
-#: ../wxui/memedit.py:697
+#: ../wxui/memedit.py:708
 msgid "Skip"
 msgstr "Přeskočit"
 
-#: ../wxui/memedit.py:2647
+#: ../wxui/memedit.py:2709
 msgid "Some memories are incompatible with this radio"
 msgstr "Některé paměti nejsou s touto vysílačkou kompatibilní"
 
-#: ../wxui/memedit.py:2485
+#: ../wxui/memedit.py:2547
 msgid "Some memories are not deletable"
 msgstr "Některé paměti nelze smazat"
 
-#: ../wxui/memedit.py:2161
+#: ../wxui/memedit.py:2223
 #, python-format
 msgid "Sort %i memories"
 msgstr "Seřadit %i pamětí"
 
-#: ../wxui/memedit.py:2291
+#: ../wxui/memedit.py:2353
 #, fuzzy, python-format
 msgid "Sort %i memory"
 msgid_plural "Sort %i memories"
@@ -3097,7 +3105,7 @@ msgstr[0] "Seřadit %i paměť"
 msgstr[1] "Seřadit %i paměti"
 msgstr[2] "Seřadit %i pamětí"
 
-#: ../wxui/memedit.py:2295
+#: ../wxui/memedit.py:2357
 #, fuzzy, python-format
 msgid "Sort %i memory ascending"
 msgid_plural "Sort %i memories ascending"
@@ -3105,7 +3113,7 @@ msgstr[0] "Seřadit %i paměť vzestupně"
 msgstr[1] "Seřadit %i paměti vzestupně"
 msgstr[2] "Seřadit %i pamětí vzestupně"
 
-#: ../wxui/memedit.py:2317
+#: ../wxui/memedit.py:2379
 #, fuzzy, python-format
 msgid "Sort %i memory descending"
 msgid_plural "Sort %i memories descending"
@@ -3113,11 +3121,11 @@ msgstr[0] "Seřadit %i paměť sestupně"
 msgstr[1] "Seřadit %i paměti sestupně"
 msgstr[2] "Seřadit %i pamětí sestupně"
 
-#: ../wxui/memedit.py:2176
+#: ../wxui/memedit.py:2238
 msgid "Sort by column:"
 msgstr "Seřadit podle sloupce:"
 
-#: ../wxui/memedit.py:2175
+#: ../wxui/memedit.py:2237
 #, fuzzy
 msgid "Sort memories"
 msgstr "Seřadit paměti"
@@ -3143,11 +3151,11 @@ msgstr "Úspěch"
 msgid "Successfully sent bug report:"
 msgstr "Hlášení o chybě bylo úspěšně odesláno:"
 
-#: ../wxui/memedit.py:348
+#: ../wxui/memedit.py:359
 msgid "TX Frequency"
 msgstr "Vysílací frekvence (TX)"
 
-#: ../wxui/memedit.py:157
+#: ../wxui/memedit.py:159
 msgid "TX-RX DTCS polarity (normal or reversed)"
 msgstr "Polarita TX-RX DTCS (normální nebo obrácená)"
 
@@ -3211,7 +3219,7 @@ msgstr "Ladicí protokol není k dispozici, pokud je CHIRP spuštěn interaktivn
 msgid "The following information will be submitted:"
 msgstr "Budou odeslány následující informace:"
 
-#: ../wxui/memedit.py:1391
+#: ../wxui/memedit.py:1443
 msgid "The memory editor requires a reload in order to change the workflow. That will happen now. Any other open tabs will be updated the next time they are loaded."
 msgstr "Editor paměti vyžaduje znovunačtení, aby se změnil postup úprav. To se nyní provede. Ostatní otevřené karty se aktualizují při jejich příštím načtení."
 
@@ -3220,7 +3228,7 @@ msgstr "Editor paměti vyžaduje znovunačtení, aby se změnil postup úprav. T
 msgid "The recommended procedure for importing memories is to open the source file and copy/paste memories from it into your target image. If you continue with this import function, CHIRP will replace all memories in your currently-open file with those in %(file)s. Would you like to open this file to copy/paste memories across, or proceed with the import?"
 msgstr "Doporučený postup pro import pamětí je otevřít zdrojový soubor a zkopírovat/vložit paměti z něj do cílového obrazu. Pokud budete pokračovat v této funkci importu, CHIRP nahradí všechny paměti ve vašem aktuálně otevřeném souboru těmi z %(file)s. Přejete si otevřít tento soubor pro ruční kopírování/vkládání pamětí, nebo pokračovat s automatickým importem?"
 
-#: ../wxui/memedit.py:2252
+#: ../wxui/memedit.py:2314
 #, fuzzy
 msgid "This Memory"
 msgstr "Tato paměť"
@@ -3292,12 +3300,12 @@ msgstr ""
 msgid "This is the ticket number for an already-created issue on the chirpmyradio.com website"
 msgstr "Toto je číslo tiketu pro již vytvořený problém na webu chirpmyradio.com"
 
-#: ../wxui/memedit.py:2256
+#: ../wxui/memedit.py:2318
 #, fuzzy
 msgid "This memory and shift all up"
 msgstr "Tato paměť a posunout všechny nahoru"
 
-#: ../wxui/memedit.py:2254
+#: ../wxui/memedit.py:2316
 #, fuzzy
 msgid "This memory and shift block up"
 msgstr "Tato paměť a posunout blok nahoru"
@@ -3339,47 +3347,47 @@ msgstr "Tento nastroj odešle podrobnosti o vašem systému k již existujícím
 msgid "This will load a module from a website issue"
 msgstr "Tímto načtete modul z hlášení na webu"
 
-#: ../wxui/memedit.py:525
+#: ../wxui/memedit.py:536
 msgid "Tone"
 msgstr "Tón"
 
-#: ../wxui/memedit.py:1452
+#: ../wxui/memedit.py:1510
 msgid "Tone Mode"
 msgstr "Tónový režim"
 
-#: ../wxui/memedit.py:527
+#: ../wxui/memedit.py:538
 msgid "Tone Squelch"
 msgstr "Tónový squelch (TSQL)"
 
-#: ../wxui/memedit.py:151
+#: ../wxui/memedit.py:153
 msgid "Tone squelch mode"
 msgstr "Režim tónového squelchu"
 
-#: ../wxui/memedit.py:164
+#: ../wxui/memedit.py:166
 msgid "Transmit Power"
 msgstr "Vysílací výkon"
 
-#: ../wxui/memedit.py:160
+#: ../wxui/memedit.py:162
 msgid "Transmit shift, split mode, or transmit inhibit"
 msgstr "Odskok vysílání, režim split nebo blokování vysílání"
 
-#: ../wxui/memedit.py:152
+#: ../wxui/memedit.py:154
 msgid "Transmit tone"
 msgstr "Vysílací tón"
 
-#: ../wxui/memedit.py:155
+#: ../wxui/memedit.py:157
 msgid "Transmit/receive DTCS code for DTCS mode, else transmit code"
 msgstr "Vysílací/přijímací DTCS kód pro režim DTCS, jinak vysílací kód"
 
-#: ../wxui/memedit.py:154
+#: ../wxui/memedit.py:156
 msgid "Transmit/receive modulation (FM, AM, SSB, etc)"
 msgstr "Vysílací/přijímací modulace (FM, AM, SSB, atd.)"
 
-#: ../wxui/memedit.py:153
+#: ../wxui/memedit.py:155
 msgid "Transmit/receive tone for TSQL mode, else receive tone"
 msgstr "Vysílací/přijímací tón pro režim TSQL, jinak přijímací tón"
 
-#: ../wxui/memedit.py:462 ../wxui/memedit.py:1464
+#: ../wxui/memedit.py:473 ../wxui/memedit.py:1522
 msgid "Tuning Step"
 msgstr "Krok ladění"
 
@@ -3396,7 +3404,7 @@ msgstr "Vyhledávač portů USB"
 msgid "Unable to determine port for your cable. Check your drivers and connections."
 msgstr "Nelze určit port pro váš kabel. Zkontrolujte ovladače a připojení."
 
-#: ../wxui/memedit.py:1969
+#: ../wxui/memedit.py:2031
 msgid "Unable to edit memory before radio is loaded"
 msgstr "Nelze upravovat paměť před načtením dat z vysílačky"
 
@@ -3405,7 +3413,7 @@ msgstr "Nelze upravovat paměť před načtením dat z vysílačky"
 msgid "Unable to find stock config %r"
 msgstr "Nelze najít výchozí konfiguraci %r"
 
-#: ../wxui/memedit.py:2502
+#: ../wxui/memedit.py:2564
 msgid "Unable to import while the view is sorted"
 msgstr "Nelze importovat, pokud je zobrazení seřazeno"
 
@@ -3427,7 +3435,7 @@ msgstr "Nelze přečíst poslední blok. To se často stává, když je zvolen m
 msgid "Unable to reveal %s on this system"
 msgstr "Nelze zobrazit %s v tomto systému"
 
-#: ../wxui/memedit.py:274
+#: ../wxui/memedit.py:285
 #, python-format
 msgid "Unable to set %s on this memory"
 msgstr "Nelze nastavit %s v této paměti"
@@ -3436,7 +3444,7 @@ msgstr "Nelze nastavit %s v této paměti"
 msgid "Unable to upload this file"
 msgstr "Tento soubor nelze nahrát"
 
-#: ../wxui/memedit.py:1034
+#: ../wxui/memedit.py:1086
 msgid "Undo"
 msgstr "Zpět"
 
@@ -3485,7 +3493,7 @@ msgstr "Nahrát do vysílačky..."
 msgid "Uploaded memory %s"
 msgstr "Nahraná paměť %s"
 
-#: ../wxui/memedit.py:1367
+#: ../wxui/memedit.py:1419
 msgid "Use TX Frequency Workflow"
 msgstr "Použít postup s TX frekvencí"
 
@@ -3529,7 +3537,7 @@ msgstr "Hodnota musí být nula nebo větší"
 msgid "Value to search memory field for"
 msgstr "Hodnota pro vyhledání v poli paměti"
 
-#: ../wxui/memedit.py:2925
+#: ../wxui/memedit.py:2987
 msgid "Values"
 msgstr "Hodnoty"
 
@@ -3546,12 +3554,12 @@ msgstr "Zobrazit"
 msgid "WARNING!"
 msgstr "VAROVÁNÍ!"
 
-#: ../wxui/bugreport.py:234 ../wxui/memedit.py:2055 ../wxui/main.py:1891
+#: ../wxui/bugreport.py:234 ../wxui/memedit.py:2117 ../wxui/main.py:1891
 #: ../wxui/main.py:2043
 msgid "Warning"
 msgstr "Varování"
 
-#: ../wxui/memedit.py:2054
+#: ../wxui/memedit.py:2116
 #, python-format
 msgid "Warning: %s"
 msgstr "Varování: %s"
