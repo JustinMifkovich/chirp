@@ -221,14 +221,24 @@ def _upload(radio):
 class UV17ProBank(chirp_common.StaticBank):
     """A fixed bank that reports the zone name stored in the radio"""
 
+    def _name_obj(self):
+        return self._model._radio._memobj.bank_name[self._index - 1]
+
     def get_name(self):
-        _bank = self._model._radio._memobj.bank_name[self._index - 1]
+        _bank = self._name_obj()
         name = b""
         for char in _bank.name:
             if ord(str(char)) in [0, 255]:
                 break
             name += int(char).to_bytes(1, 'big')
         return name.decode('gb2312', 'replace').strip() or self._name
+
+    def set_name(self, name):
+        # Encoded exactly as the Bank names settings do, so a zone renamed
+        # here and one renamed there are stored identically
+        _bank = self._name_obj()
+        length = len(_bank.name)
+        _bank.name = name.encode('gb2312')[:length].ljust(length, b"\xff")
 
 
 class UV17ProBankModel(chirp_common.StaticBankModel):
@@ -1582,6 +1592,7 @@ class UV17ProGPS(UV17Pro):
     def get_features(self):
         rf = super().get_features()
         rf.has_bank = True
+        rf.has_bank_names = True
         return rf
 
 
@@ -2051,6 +2062,7 @@ class F8HPPro(UV17Pro):
     def get_features(self):
         rf = super().get_features()
         rf.has_bank = True
+        rf.has_bank_names = True
         return rf
 
 
