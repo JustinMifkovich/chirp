@@ -272,6 +272,53 @@ class UV17ProBankModel(chirp_common.StaticBankModel):
         raise self._fixed_banks(bank)
 
 
+class UV17ProRelocatingBankModel(UV17ProBankModel):
+    """Bank model that assigns by moving the memory into the zone.
+
+    These radios have no per-channel bank field: a channel is in zone N
+    because it occupies one of that zone's rows. Assigning a bank is
+    therefore a relocation, and the memory's channel number changes as a
+    result. Callers must re-read the memory afterwards rather than assuming
+    its number is stable.
+    """
+    # Tells the UI that a mapping change can renumber memories, so the
+    # whole view needs refreshing rather than a single row.
+    relocates_memories = True
+
+    def _bank_rows(self, bank):
+        lo, hi = self._rf.memory_bounds
+        count = (hi - lo + 1) // self._num_banks
+        start = lo + ((bank.get_index() - 1) * count)
+        return range(start, start + count)
+
+    def add_memory_to_mapping(self, memory, bank):
+        rows = self._bank_rows(bank)
+        if memory.number in rows:
+            # Already in this zone; nothing to do
+            return
+
+        for row in rows:
+            if self._radio.get_memory(row).empty:
+                target = row
+                break
+        else:
+            raise errors.RadioError('Zone %s is full' % bank.get_name())
+
+        source = memory.number
+        mem = self._radio.get_memory(source)
+        mem.number = target
+        self._radio.set_memory(mem)
+        self._radio.erase_memory(source)
+
+        # Report the new location back to the caller
+        memory.number = target
+
+    def remove_memory_from_mapping(self, memory, bank):
+        raise errors.RadioError(
+            'Channels on this radio are always in a zone. Assign another '
+            'zone instead of clearing this one.')
+
+
 @directory.register
 class UV17Pro(bfc.BaofengCommonHT):
     """Baofeng UV-17Pro"""
@@ -2079,7 +2126,7 @@ class F8HPPro(UV17Pro):
         basic.append(rs)
 
     def get_bank_model(self):
-        return UV17ProBankModel(self, banks=10)
+        return UV17ProRelocatingBankModel(self, banks=10)
 
     def get_features(self):
         rf = super().get_features()
