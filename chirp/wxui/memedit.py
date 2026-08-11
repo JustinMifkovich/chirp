@@ -148,6 +148,8 @@ class ChirpRowLabelRenderer(glr.GridDefaultRowLabelRenderer):
 DEFAULT_COLUMN_HELP = {
     'freq': _('Receive frequency'),
     'name': _('Memory label (stored in radio)'),
+    'bank': _('Bank membership (edited on the Banks tab, and on some radios '
+              'fixed by the memory number)'),
     'tmode': _('Tone squelch mode'),
     'rtone': _('Transmit tone'),
     'ctone': _('Transmit/receive tone for TSQL mode, else receive tone'),
@@ -209,6 +211,15 @@ class ChirpMemoryColumn(object):
             return ' '.join(labelwords)
 
     def hidden_for(self, memory):
+        return False
+
+    @property
+    def read_only(self):
+        """Whether this column is never editable.
+
+        This is for columns that display something derived rather than
+        stored, as opposed to memory.immutable, which varies per memory.
+        """
         return False
 
     @property
@@ -713,6 +724,47 @@ class ChirpCommentColumn(ChirpMemoryColumn):
     def _digest_value(self, memory, input_value):
         # Limit to 128 characters for sanity
         return str(input_value)[:256]
+
+
+class ChirpBankColumn(ChirpMemoryColumn):
+    """Read-only display of the bank(s) a memory belongs to.
+
+    Nothing is stored on the memory for this: the value comes from the
+    radio's bank model, which for radios with fixed banks derives it from
+    the memory number alone.
+    """
+    # This is just here so it is marked for translation
+    __TITLE = _('Bank')
+
+    def __init__(self, name, radio, bankmodel, label=None):
+        super().__init__(name, radio, label=label)
+        self._bankmodel = bankmodel
+
+    @property
+    def read_only(self):
+        return True
+
+    @property
+    def valid(self):
+        # has_bank defaults to True, so ask the radio for a model rather
+        # than trusting the flag.
+        return self._bankmodel is not None
+
+    @staticmethod
+    def get_sortable_value(value):
+        # Sort by the first bank's name, so sorting groups the banks
+        # instead of interleaving multi-bank memories.
+        return value.split(',')[0]
+
+    def value(self, memory):
+        return [bank.get_name()
+                for bank in self._bankmodel.get_memory_mappings(memory)]
+
+    def _render_value(self, memory, value):
+        return ', '.join(value)
+
+    def get_editor(self):
+        return None
 
 
 def title_case_special(string):
@@ -1435,6 +1487,11 @@ class ChirpMemEdit(common.ChirpEditor, common.ChirpSyncEditor):
             power_column = ChirpChoiceColumn('power', self._radio,
                                              valid_power_levels)
 
+        # Resolve this once: get_bank_model() builds a new model each call.
+        bankmodel = None
+        if hasattr(self._radio, 'get_bank_model'):
+            bankmodel = self._radio.get_bank_model()
+
         if self._rconfig.get_bool('use_txfreq_workflow'):
             tx_cols = [ChirpFrequencyColumn('txfreq', self._radio),]
         else:
@@ -1447,6 +1504,7 @@ class ChirpMemEdit(common.ChirpEditor, common.ChirpSyncEditor):
         defs = [
             ChirpFrequencyColumn('freq', self._radio),
             ChirpMemoryColumn('name', self._radio),
+            ChirpBankColumn('bank', self._radio, bankmodel),
             ChirpChoiceColumn('tmode', self._radio,
                               valid_tmodes,
                               label=_('Tone Mode')),
@@ -1599,11 +1657,15 @@ class ChirpMemEdit(common.ChirpEditor, common.ChirpSyncEditor):
 
             for col, col_def in enumerate(self._col_defs):
                 self._grid.SetCellValue(row, col, col_def.render_value(memory))
-                immutable = (col_def.name in memory.immutable or
+                immutable = (col_def.read_only or
+                             col_def.name in memory.immutable or
                              col_def.name in immutable_extras)
                 self._grid.SetReadOnly(row, col,
                                        immutable or not self.editable)
-                if immutable:
+                # The shading says "there is a value here you cannot
+                # change", so a read-only column leaves empty rows alone
+                # rather than drawing a bar the whole length of the grid.
+                if immutable and not (col_def.read_only and memory.empty):
                     color = immutable_color
                 else:
                     color = self._default_cell_bg_color
@@ -2952,7 +3014,7 @@ class ChirpMemPropDialog(wx.Dialog):
             if coldef.valid and '.' not in coldef.name:
                 editor = coldef.get_propeditor(memory)
                 self._pg.Append(editor)
-                if coldef.name in memory.immutable:
+                if coldef.read_only or coldef.name in memory.immutable:
                     editor.Enable(False)
 
         bs = self.CreateButtonSizer(wx.OK | wx.CANCEL)
