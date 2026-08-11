@@ -249,6 +249,28 @@ class UV17ProBankModel(chirp_common.StaticBankModel):
         self._banks = [UV17ProBank(self, i + 1, 'Bank %i' % (i + 1))
                        for i in range(self._num_banks)]
 
+    def _bank_rows(self, bank):
+        lo, hi = self._rf.memory_bounds
+        count = (hi - lo + 1) // self._num_banks
+        start = lo + ((bank.get_index() - 1) * count)
+        return start, start + count - 1
+
+    def _fixed_banks(self, bank):
+        # The generic message only says that banks cannot be reassigned,
+        # which leaves no clue what to do instead. Say what the zone
+        # actually is on this radio.
+        first, last = self._bank_rows(bank)
+        return errors.RadioFixedBanks(
+            'Zones on this radio are fixed ranges of channel numbers. To put '
+            'a memory in %s, move it to a channel between %i and %i in the '
+            'Memories tab.' % (bank.get_name(), first, last))
+
+    def add_memory_to_mapping(self, memory, bank):
+        raise self._fixed_banks(bank)
+
+    def remove_memory_from_mapping(self, memory, bank):
+        raise self._fixed_banks(bank)
+
 
 @directory.register
 class UV17Pro(bfc.BaofengCommonHT):
