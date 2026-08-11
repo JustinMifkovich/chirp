@@ -256,7 +256,12 @@ class ChirpBankEdit(common.ChirpEditor):
         else:
             self._bankmodel.remove_memory_from_mapping(mem, bank)
 
-        self._refresh_memory(mem)
+        if getattr(self._bankmodel, 'relocates_memories', False):
+            # Assigning a bank moved the memory to a different channel
+            # number, so the row it came from is stale as well.
+            self.refresh_memories()
+        else:
+            self._refresh_memory(mem)
 
         wx.PostEvent(self, common.EditorChanged(self.GetId()))
 
