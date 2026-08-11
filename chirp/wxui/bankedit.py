@@ -19,6 +19,7 @@ import wx
 import wx.grid
 
 from chirp import chirp_common
+from chirp import errors
 from chirp.wxui import common
 from chirp.wxui import config
 from chirp.wxui import memedit
@@ -215,7 +216,7 @@ class ChirpBankEdit(common.ChirpEditor):
         self._grid.SetColLabelValue(col, col_def.label)
         wx.CallAfter(self._grid.AutoSizeColumns, setAsMin=True)
 
-    @common.error_proof()
+    @common.error_proof(errors.RadioError)
     def _cell_changing(self, event):
         row = event.GetRow()
         col = event.GetCol()
